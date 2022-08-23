@@ -1,12 +1,12 @@
 import PostCreate from './features/newPost/PostCreate';
-import PostList from './features/PostList/PostList';
+import Posts from './features/postList/Posts';
 
 function App() {
   return (
     <div>
-      <h1 className='text-3xl font-bold underline'>Create Post</h1>
+      <h1 className="text-3xl font-bold underline">Create Post</h1>
       <PostCreate />
-      <PostList />
+      <Posts />
     </div>
   );
 }
