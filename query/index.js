@@ -4,11 +4,56 @@ const { default: axios } = require('axios');
 
 const app = express();
 
+const posts = {};
+
+// example schema for post object
+// posts === {
+//   'j123j34: {
+//   id: 'j123j34',
+//   title: 'post title'
+//   comments: [
+//     { id: 'klj3kl', content: 'comment!' },
+//     { id: 'f32d4b', content: 'you SUCK!' },
+//   ]
+//   },
+//   'j123j34: {
+//   id: 'j123j34',
+//   title: 'post title'
+//   comments: [
+//     { id: 'klj3kl', content: 'comment!' },
+//     { id: 'f32d4b', content: 'you SUCK!' },
+//   ]
+//   },
+// }
+
 app.use(express.json());
 app.use(cors());
 
 app.post('/events', (req, res) => {
-  const event = req.body;
+  const { type, data } = req.body;
 
-  res.send({ status: 'Ok' });
+  if (type === 'PostCreated') {
+    const { id, title, slug } = data;
+    posts[id] = { id, title, slug, comments: [] };
+  }
+
+  if (type === 'CommentCreated') {
+    const { id, content, postId } = data;
+    const post = posts[postId];
+    post.comments.push({ id, content });
+  }
+  console.log(posts);
+  res.send({});
+});
+
+app.get('/posts', (req, res) => {
+  res.send(posts);
+});
+
+app.listen(4002, () => {
+  console.log(`
+  Successful 🔥
+  QUERY SERVICE
+  Listening on http://localhost:4002
+  `);
 });

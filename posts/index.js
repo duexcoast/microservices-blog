@@ -26,6 +26,7 @@ app.post('/posts', async (req, res) => {
     data: {
       id,
       title,
+      slug,
     },
   });
   res.status(201).send(posts[id]);
