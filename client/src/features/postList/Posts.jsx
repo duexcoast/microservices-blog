@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState, useCallback } from 'react';
 
+
 import PostCard from './PostCard';
 
 export default function PostList() {
@@ -17,8 +18,8 @@ export default function PostList() {
   }, [fetchPosts]);
 
   const renderedPosts = Object.values(posts).map(post => {
-    return <PostCard title={post.title} slug={post.slug} />;
+    return <PostCard title={post.title} slug={post.slug} postId={post.id} />;
   });
 
-  return <div className="flex gap-4 flex-wrap">{renderedPosts}</div>;
+  return <div className="flex flex-wrap gap-4">{renderedPosts}</div>;
 }

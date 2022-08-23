@@ -14,7 +14,7 @@ app.get('/posts/:id/comments', (req, res) => {
 
 app.post('/posts/:id/comments', (req, res) => {
   const commentId = randomBytes(4).toString('hex');
-  const content = req.body;
+  const { content } = req.body;
 
   // give us the array for that post, or if it's still undefined, give us an empty array
 
