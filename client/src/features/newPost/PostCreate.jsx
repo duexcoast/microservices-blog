@@ -21,16 +21,16 @@ export default function PostCreate() {
     setSlug('');
   };
   return (
-    <div>
+    <div className="relative block w-full max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow-md  dark:border-gray-700 dark:bg-gray-800">
       <form onSubmit={onSubmit}>
         <InputField
-          label="Title"
+          label="Title:"
           placeholder="Your post title"
           value={title}
           setValue={setTitle}
         />
         <InputField
-          label="Slugline"
+          label="Slugline:"
           placeholder="Short description for your post"
           value={slug}
           setValue={setSlug}
