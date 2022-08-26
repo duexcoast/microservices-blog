@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-srv
+spec:
+  type: NodePort
+  # what pods to expose to the outside
+  # should match the labels prop on depl config
+  # selector is like targeting classnames in css
+  selector:
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      # port for the NodePort service, should usually be the same as targetPort
+      port: 4000
+      # port for our pod/container (what our posts service server is listening on)
+      targetPort: 4000
