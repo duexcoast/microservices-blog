@@ -46,6 +46,7 @@ app.listen(4000, () => {
   console.log(`
   Successful 🔥
   POSTS SERVICE
+  Version 55
   Listening on http://localhost:4000
   `);
 });
