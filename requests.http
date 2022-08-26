@@ -1,0 +1,7 @@
+POST http://localhost:30974/posts
+Content-Type: application/json
+
+{
+  "title": "listen to me",
+  "slug": "you write down what i tell you to write down"
+}
