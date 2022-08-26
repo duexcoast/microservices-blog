@@ -10,7 +10,7 @@ app.post('/events', async (req, res) => {
   if (type === 'CommentCreated') {
     const status = /orange/gi.test(data.content) ? 'rejected' : 'approved';
 
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
       type: 'CommentModerated',
       data: {
         id: data.id,
@@ -26,6 +26,6 @@ app.listen(4003, () => {
   console.log(`
   Successful 🔥 
   MODERATION SERVICE
-  Listening on http://localhost:4003
+  Listening on Port 4003
   `);
 });
