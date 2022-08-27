@@ -11,7 +11,7 @@ export default function PostCreate() {
   const onSubmit = async e => {
     e.preventDefault();
 
-    await axios.post('http://posts.com:4000/posts', {
+    await axios.post('http://posts:4000/posts/create', {
       title,
       slug
     });
